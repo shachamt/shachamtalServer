@@ -1,10 +1,13 @@
 from flask import Flask, redirect
 from flask import url_for
-from datetime import datetime
+from datetime import timedelta
 from flask import render_template
-from flask import request
+from flask import request, session, jsonify
 
 app = Flask (__name__)
+app.secret_key = '565656'
+app.config['SESSION_PERMANENT'] = True
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
 
 @app.route('/')
 def goHome ():
@@ -37,7 +40,7 @@ users_dict =  {
 
 }
 
-@app.route('/forms')
+@app.route('/forms', methods=['GET','POST'])
 def MyForms ():
     if 'user_name' in request.args:
         user_name= request.args['user_name']
@@ -53,8 +56,27 @@ def MyForms ():
             else:
                 return render_template('assignment3_2.html',
                                    message= 'user not found')
+    if request.method == 'POST':
+        userName = request.form ['userName']
+        email = request.form ['email']
+        nickname = request.form ['nickname']
+        if ((userName!='') & (email!='') & (nickname!='')):
+                session['nickname'] = nickname
+                return render_template('assignment3_2.html',
+                                        nickname=nickname,
+                                        email=email,
+                                       userName=userName)
     return render_template('assignment3_2.html',
                            users_dict=users_dict)
+
+@app.route('/session')
+def session_func():
+    return jsonify(dict(session))
+
+@app.route('/logOut')
+def logOut ():
+    session.clear()
+    return redirect(url_for('MyForms'))
 
 if __name__ == '__main__':
     app.run(debug=True)

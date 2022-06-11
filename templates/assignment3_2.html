@@ -4,13 +4,17 @@
 
     {%block explain %}
     {{super()}}
+        {% if session['nickname'] %}
+            <h2>Hello, {{session['nickname'] | upper ()}}</h2>
+            <a href="/logOut"> Log Out</a>
+        {% endif %}
 
-    <div id="dict">
 
+    <div id="searchDiv">
         <h1>Search user here</h1>
 
         <form action="/forms">
-            <input type="text" name="user_name" placeholder="user name">
+            <input type="text" name="user_name" placeholder="User Name">
             <input type="submit" value="Find">
         </form>
 
@@ -34,6 +38,29 @@
         {% endif %}
 
     </div>
+
+    <div id="registrationDiv">
+
+        {% if nickname %}
+        {% else %}
+             <h1>Registration form</h1>
+            <form action="/forms" method="post">
+            <input type="text" name="userName" placeholder="User Name" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="text" name="nickname" placeholder="Nickname" required>
+            <input type="submit" value="Register">
+
+        </form>
+
+        {% endif %}
+
+
+
+
+    </div>
+
+
+
     {%endblock %}
 
     {%block titleFooter1 %}Find more about diving in Israel{% endblock %}

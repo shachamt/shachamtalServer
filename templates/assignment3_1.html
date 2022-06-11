@@ -5,6 +5,10 @@
     {% if user_info %}
       {%block explain %}
      {{super()}}
+        {% if session['nickname'] %}
+            <h2>Hello, {{session['nickname'] | upper ()}}</h2>
+            <a href="/logOut"> Log Out</a>
+        {% endif %}
        <div id="hobbiesHello">
             <h2>Welcome to {{user_info | capitalize()}}'s hobbies page!</h2>
        </div>

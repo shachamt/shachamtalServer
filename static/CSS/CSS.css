@@ -531,14 +531,14 @@ sendButton:hover {
     font-size: larger;
     padding: 0;
     margin-left: 5%;
-
 }
 #hello {
     margin-left: 35%;
-
 }
 
-#dict {
+#searchDiv {
         margin-left: 5%;
-
+}
+#registrationDiv {
+        margin-left: 5%;
 }
