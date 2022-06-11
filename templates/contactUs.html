@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us for rent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script defer src="{{url_for('static', filename='JS/JS.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/CSS.css')}}">
+
+</head>
+
+<body>
+    <div class="containerContact">
+
+{%include "header.html" %}
+
+
+
+        <div id="myForm">
+            <form action="" method="post">
+                <fieldset>
+                    <legend>Contact Us</legend>
+                    <div id="error"></div>
+                    <label for="fullName">Full Name: </label>
+                    <input type="text" id="fullName" class="inputs" name="fullName" required>
+                    <p></p>
+
+                    <label for="email">email: </label>
+                    <input type="email" name="email" id="email" class="inputs" required>
+                    <p></p>
+
+                    <label for="telephone">Telephone: </label>
+                    <input type="number" name="telephone" id="telephone" class="inputs" required>
+                    <p></p>
+
+                    <label for="arrivingDate">Please enter your arriving date:</label>
+                    <input type="date" name="arrivingDate" id="arrivingDate" class="inputs">
+                    <p></p>
+
+                    <label for="nightNum">Number of nights:</label>
+                    <input list="nightNum" type="text" class="inputs">
+
+                    <datalist id="nightNum">
+                        <option value="One night"> </option>
+                        <option value="2-6 nights"> </option>
+                        <option value="More than 7 nights"> </option>
+                        <option value="Not sure yet"> </option>
+                    </datalist>
+                    <p></p>
+
+                    <div id="checks">
+                        <p>please choose the relevent options for you (you can choose more than one)</p>
+                        <div>
+                            <input type="checkbox" name="animal" id="animal" />
+                            <label for="animal">I have an animal that comes with me</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="parking" id="parking" />
+                            <label for="parking">I need a parking place</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="smoking" id="smoking" />
+                            <label for="smoking">I smoke</label>
+                        </div>
+                    </div>
+
+                    Do you have any other questions? <br>
+                    <textarea id="textarea" name="freePlace" id="freePlace">Type here</textarea>
+
+                    <div id="send">Finished? click here to load the data
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <button type="button" id="loadData" onclick="fillProgress()">Load data</button>
+                    </div>
+                    <div><progress value="1" id="loadProgress" min="1" max="100"></progress></div>
+                    <div id="allLoad"></div>
+
+                    <button type="submit" id="sendButton">Send File</button>
+                    <h2> We appreciate your time and will get back to you ASAP! </h2>
+
+                </fieldset>
+            </form>
+
+            <br>
+        </div>
+
+        <div id="picturesContact">
+            <img id="picture1Contact" src="../static/img/picture1.jpeg" alt="">
+            <img id="picture2Contact" src="../static/img/picture2.jpeg" alt="">
+            <img id="picture3Contact" src="../static/img/picture3.jpeg" alt="">
+            <img id="picture4Contact" src="../static/img/picture4.jpeg" alt="">
+
+        </div>
+
+        <div id="aboutUs">
+            <h1>About Us</h1>
+            <p class="text">
+                We are a couple students who lives in Beer-Sheva. <br>
+                Once in a while, we visit our parents and our house in Beer-Sheva is available <br>
+                So we thought, why won't we offer the house for you to stay?<span class="dots">...</span> <br>
+                <span class="moreText">
+                    So if you're looking for short rental in beer Beer-Sheva, <br>
+                    inside the studential area,<br>
+                    In cheap price and all of the furniture <br>
+                    We invite you here!
+                    We have 5 appartments to offer you. Have a look and talk to us! <br></span>
+            </p>
+            <button class="readMoreButton">Read More</button>
+        </div>
+
+
+
+
+
+        <footer id="footer">
+            <div id="footerCointainer">
+                <p>
+                <h2>Footer</h2>
+                <div class="footerLinks">
+                    Find Beer-Sheva on the map- <a
+                        href="https://www.google.com/maps/place/%D7%91%D7%90%D7%A8+%D7%A9%D7%91%D7%A2%E2%80%AD/@31.2614223,34.8609272,12z/data=!3m1!4b1!4m5!3m4!1s0x15026640029f8777:0x8dee8012deb5dd8!8m2!3d31.252973!4d34.791462"
+                        target="_blank">Beer-Sheva</a>
+                </div>
+                <div class="footerLinks">
+                    Find out what the weather will be- <a
+                        href="https://www.accuweather.com/en/il/beersheba/215752/weather-forecast/215752"
+                        target="_blank">Weather</a>
+                </div>
+                <div class="footerLinks">
+                    what are the best things to do in Beer-Sheva? <a
+                        href="https://www.tripadvisor.com/Attractions-g297741-Activities-Beersheba_Southern_District.html"
+                        target="_blank"> Click here</a>
+                </div>
+                <a id="goUpBtn" href="#smallHeader">Go Back Up</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

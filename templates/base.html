@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script defer src="{{url_for('static', filename='JS/JS.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/CSS.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/CSS.css')}}">
+</head>
+
+<body>
+    {% include('header.html') %}
+
+    {%block explain %}  <h1 id="hello"> Hello! Nice to see you here</h1>{%endblock %}
+
+     <footer id="footer">
+            <div id="footerCointainer">
+                <p>
+                <h2>Footer</h2>
+                <div class="footerLinks">
+                    {% block titleFooter1 %}{% endblock %}
+                    {% block linkFooter1 %}{% endblock %}
+
+                </div>
+                <div class="footerLinks">
+                    {% block titleFooter2 %}{% endblock %}
+                    {% block linkFooter2 %}{% endblock %}
+
+                </div>
+                <div class="footerLinks">
+                    {% block titleFooter3 %}{% endblock %}
+                    {% block linkFooter3 %}{% endblock %}
+
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

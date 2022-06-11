@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+    {% set title='My Forms' %}
+    {% block title %}{{ title }} Page{% endblock %}
+
+    {%block explain %}
+{{super()}}
+    {%endblock %}
+
+    {%block titleFooter1 %}Find more about diving in Israel{% endblock %}
+    {% block linkFooter1 %}<a href="https://www.padi.com/diving-in/israel/" target="_blank">Diving in Israel</a>{% endblock %}
+
+    {% block titleFooter2 %}Find more about diving in Sinai{% endblock %}
+    {% block linkFooter2 %}<a href="https://www.abrahamhostels.com/diving-in-sinai-the-best-diving-spots-and-more/" target="_blank">Diving in Sinai</a>{% endblock %}
+
+    {% block titleFooter3 %}Find more about diving in Galapagos{% endblock %}
+    {% block linkFooter3 %}<a href="https://www.liveaboard.com/diving/galapagos?cid=5000&gclid=Cj0KCQjw-pCVBhCFARIsAGMxhAckwhrj2vTJNxAnXHdsfg5MTeKfM9SNyxCuOdz0Rdz_sVmXaUtRoEcaAv1FEALw_wcB" target="_blank">Diving in Galapagos</a>{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+    {% set title='My Hobbies' %}
+    {% block title %}{{ title }} Page{% endblock %}
+
+    {% if user_info %}
+      {%block explain %}
+     {{super()}}
+       <div id="hobbiesHello">
+            <h2>Welcome to {{user_info | capitalize()}}'s hobbies page!</h2>
+       </div>
+
+      <div id="hobbies">
+          <h2>My Hobbies:</h2>
+          <ol>
+               {% for hobbie in my_hobbies %}
+                   <li>{{ hobbie | upper() }}</li>
+               {% endfor %}
+          </ol>
+     </div>
+
+      <div id="tvShows">
+          <h2>My favorite TV shows:</h2>
+          <ol>
+                {% for show in my_shows %}
+                  <li>{{ show | capitalize() }}</li>
+                {% endfor %}
+         </ol>
+      </div>
+      {%endblock %}
+
+      {% block titleFooter1 %}Find more about diving in Israel- {% endblock %}
+      {% block linkFooter1 %}<a href="https://www.padi.com/diving-in/israel/" target="_blank">Diving in Israel</a>{% endblock %}
+
+       {% block titleFooter2 %}Find more about the importance of sleeping- {% endblock %}
+      {% block linkFooter2 %}<a href="https://www.sclhealth.org/blog/2018/09/the-benefits-of-getting-a-full-night-sleep/" target="_blank">Sleeping</a>{% endblock %}
+
+     {% block titleFooter3 %}Find more about the importance of reading- {% endblock %}
+     {% block linkFooter3 %}<a href="https://harappa.education/harappa-diaries/importance-of-reading/" target="_blank">Reading</a>{% endblock %}
+
+    {% else %}
+        <h3>No information, Please log in</h3>
+    {% endif %}
+

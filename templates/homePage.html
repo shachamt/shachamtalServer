@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short term rental in Beer-Sheva</title>
+    <script defer src="{{url_for('static', filename='JS/JS.js')}}"></script>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/CSS.css')}}">
+
+</head>
+
+<body>
+
+    <div class="containerHome">
+
+{%include "header.html" %}
+
+        <div id="smallHeader">
+            <h1> B.S HOMES <br> </h1>
+            <h2>Find your place in Beer-Sheva</h2>
+            <p>Looking for a short term rental in the best city in Israel?<br>
+                You're in the right place!
+            </p>
+        </div>
+
+        <div id="explain">
+            <h1>What do we offer?</h1>
+            <ul>
+                <li> Free air conditioner all over the place</li>
+                <li> A king size bed/2 seperated bed!</li>
+                <li> 2 toilet rooms & 1 clean bathroom</li>
+                <li> All of the furniture in every appartments</li>
+                <li> A parking place option for some appartments</li>
+                <li> And very good vibes!</li>
+            </ul>
+        </div>
+
+        <div id="picturesHome">
+            <img id="picture1Home" src="../static/img/pic1.jpeg" alt="">
+            <img id="picture2Home" src="../static/img/pic2.jpeg" alt="">
+        </div>
+
+        <div id="aboutUs">
+            <h1>About Us</h1>
+            <p class="text">
+                We are a couple students who lives in Beer-Sheva. <br>
+                Once in a while, we visit our parents and our house in Beer-Sheva is available <br>
+                So we thought, why won't we offer the house for you to stay?<span class="dots">...</span> <br>
+                <span class="moreText">
+                    So if you're looking for short rental in beer Beer-Sheva, <br>
+                    inside the studential area,<br>
+                    In cheap price and all of the furniture <br>
+                    We invite you here!
+                    We have 5 appartments to offer you. Have a look and talk to us! <br></span>
+            </p>
+            <button class="readMoreButton">Read More</button>
+        </div>
+
+        <footer id="footer">
+            <div id="footerCointainer">
+                <p>
+                <h2>Footer</h2>
+                <div class="footerLinks">
+                    Find Beer-Sheva on the map- <a
+                        href="https://www.google.com/maps/place/%D7%91%D7%90%D7%A8+%D7%A9%D7%91%D7%A2%E2%80%AD/@31.2614223,34.8609272,12z/data=!3m1!4b1!4m5!3m4!1s0x15026640029f8777:0x8dee8012deb5dd8!8m2!3d31.252973!4d34.791462"
+                        target="_blank">Beer-Sheva</a>
+                </div>
+                <div class="footerLinks">
+                    Find out what the weather will be- <a
+                        href="https://www.accuweather.com/en/il/beersheba/215752/weather-forecast/215752"
+                        target="_blank">Weather</a>
+                </div>
+                <div class="footerLinks">
+                    what are the best things to do in Beer-Sheva? <a
+                        href="https://www.tripadvisor.com/Attractions-g297741-Activities-Beersheba_Southern_District.html"
+                        target="_blank"> Click here</a>
+                </div>
+                <a id="goUpBtn" href="#smallHeader">Go Back Up</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

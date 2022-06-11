@@ -1,0 +1,539 @@
+/*_______General_______*/
+body {
+    background-image: linear-gradient(rgba(102, 97, 97, 0.75), rgba(102, 97, 97, 0.75)), url(../img/background.jpg);
+    font-family: myFirstFont;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../Spectral/Spectral-Light.ttf);
+}
+
+a:hover {
+    color: royalblue;
+}
+
+.active {
+    color: royalblue;
+    font-size: 250%;
+}
+
+
+/*_______Header______*/
+header {
+    position: sticky;
+    top: 0;
+    grid-area: header;
+}
+
+header nav {
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 0 0.5vh black;
+    text-align: center;
+    height: 12vh;
+}
+
+header nav li {
+    display: inline; /*to be side be side*/
+}
+
+header nav li a {
+    color: black;
+    text-decoration: none; /*to look like regular text with no lines*/
+    padding: 5vw;
+    font-size: 150%;
+}
+
+#logo {
+    float: left;
+    margin-top: -25px;
+    height: 13vh;
+}
+
+#menuIcon {
+    float: right;
+    margin-top: -25px;
+    height: 10vh;
+    cursor: pointer;
+}
+
+/*_______Small Header______*/
+#smallHeader {
+    grid-area: smallHeader;
+    margin: 0 auto; /*puts in the center*/
+    padding: 5%;
+    text-align: center;
+    width: 50%;
+    color: white;
+    font-size: 150%;
+}
+
+#smallHeader h1 {
+    font-size: 200%;
+    margin: 0;
+}
+
+#smallHeader h2 {
+    font-size: 150%;
+}
+
+#smallHeader p {
+    font-size: 120%;
+}
+
+/*_______Footer______*/
+#footer { /*the outside block*/
+    background-color: rgb(107, 102, 102);
+    grid-area: footer;
+    margin-top: 4vh;
+}
+
+#footerCointainer { /*the inside block*/
+    text-align: center;
+    max-width: 90vw;
+    margin: auto;
+    background-color: rgb(179, 179, 179);
+    border-radius: 20px;
+    font-size: 100%;
+}
+
+#footerLinks { /*seperate lines*/
+    display: block;
+}
+
+footer a {
+    list-style: none;
+    color: black; /*to look like regular text with no lines*/
+}
+
+footer h2 { /*the header of the footer*/
+    margin: 0;
+}
+
+#goUpBtn {
+    margin: 1vh;
+    font-size: 3vh;
+}
+
+
+/*_______Animations______*/
+@keyframes smallAndBig { /*to show big picture when hovering*/
+    0% {
+        width: 50%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 50%;
+    }
+}
+
+#picture2Home:hover {
+    animation: smallAndBig;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+#picture1Home:hover {
+    animation: smallAndBig;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/*_______Home Page______*/
+/*____Grid___*/
+.containerHome {
+    display: grid;
+    height: 100vh;
+    grid-template-areas:
+        'header header header'
+        'smallHeader smallHeader smallHeader'
+        'explain picture1Home picture2Home'
+        'aboutUs aboutUs aboutUs'
+        'footer footer footer ';
+}
+
+/*____About Us___*/
+#aboutUs {
+    margin: 0 auto; /*puts in the center*/
+    padding-bottom: 3%;
+    padding-right: 2%;
+    padding-left: 2%;
+    margin-top: 5%;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.747);
+    width: 60%;
+}
+
+.text {
+    font-size: 110%;
+}
+
+.moreText { /*will show up with JS*/
+    display: none;
+}
+
+.readMoreButton {
+    cursor: pointer;
+    padding: 2%;
+    background-color: white;
+    color: black;
+    border: none;
+    outline: none;
+
+}
+
+.text.showMore .moreText {
+    display: inline;
+}
+
+.text.showMore .dots { /*the dots that disappeare when you read more*/
+    display: none;
+}
+
+/*____Texts___*/
+#explain { /*what do we offer?*/
+    background-color: rgba(255, 255, 255, 0.568);
+    border-radius: 15px;
+    width: 25vw;
+    padding-left: 2vw;
+    font-size: 1vw;
+    grid-area: explain;
+    margin-top: 0;
+    margin-bottom: 4vh;
+    margin-left: 2vw;
+}
+
+#aboutUs {
+    background: rgba(255, 255, 255, 0.562);
+    grid-area: aboutUs;
+
+}
+
+/*____Pictures___*/
+#picturesHome {
+    margin-bottom: 5vh;
+}
+
+#picture1Home {
+    grid-area: picture1Home;
+    border: 1px black solid;
+    border-radius: 15px;
+    margin-left: 5%;
+    width: 40%;
+
+}
+
+#picture2Home {
+    grid-area: picture2Home;
+    border: 1px black solid;
+    border-radius: 15px;
+    width: 40%;
+}
+
+/*_______Contact Us page______*/
+/*____Grid___*/
+.containerContact {
+    display: grid;
+    height: 100vh;
+    grid-template-areas:
+        "header header"
+        "smallHeader smallHeader"
+        "form picturesContact"
+        "aboutUs aboutUs"
+        "footer footer";
+}
+
+/*____Form___*/
+#myForm {
+    grid-area: form;
+}
+
+fieldset {
+    background-color: rgba(255, 255, 255, 0.397);
+    margin: 1vw;
+    padding: 2vw;
+    border: solid 0.1vw rgb(207, 76, 72);
+    border-radius: 20px;
+    width: 35vw;
+}
+
+legend { /*header inside the border*/
+    font-size: 3vh;
+    color: white;
+    padding: 0.25vw;
+}
+
+label {
+    display: block;
+    margin-top: 1vw;
+}
+
+.inputs { /*all the inputs except the checkbox*/
+    padding: 0.2vw;
+    border: solid 0.2vh black;
+    width: 30%;
+}
+
+input[type="checkbox"]+label { /*the labels of checkboxes*/
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+textarea { /*place to write in*/
+    width: 25vw;
+    height: 10vh;
+    padding: 0.2vw;
+    border: solid 0.2vh black;
+}
+
+#email {
+    width: 50%;
+}
+
+#checks {
+    margin-bottom: 1vh;
+}
+
+#checks p {
+    margin-bottom: 0;
+}
+
+#sendButton:hover {
+    box-shadow: inset 300px 0 0 0 rgba(92, 82, 81, 0.596);
+}
+
+
+progress {
+    width: 10vw;
+    height: 2vh;
+    margin: 1vh 2vw;
+}
+
+#send { /*the text to fill the progress*/
+    margin: 0 2vw;
+    padding-top: 3%;
+    font-weight: bold;
+}
+
+#loadData { /*the button*/
+    margin-left: 3%;
+
+}
+
+#allLoad { /*the text that shows after loading*/
+    font-size: 120%;
+
+}
+
+#sendButton {
+    cursor: pointer;
+    margin-left: 80%;
+    width: 20%;
+    height: 4vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 0 rgba(207, 77, 72, 0.596);
+    transition: ease-out 0.5s;
+    font-size: 80%;
+}
+
+
+sendButton:hover {
+    box-shadow: inset 300px 0 0 0 rgba(207, 77, 72, 0.596);
+}
+
+/*____Pictures___*/
+#picturesContact img {
+    border: 1px black solid;
+    border-radius: 15px;
+    width: 20vw;
+}
+
+#picturesContact {
+    display: grid;
+    width: 40%;
+    height: 80vh;
+    grid-template-areas:
+        "picture1Contact picture2Contact"
+        "picture3Contact picture4Contact";
+    grid-area: picturesContact;
+}
+
+#picture1Contact {
+    grid-area: picture1Contact;
+}
+
+#picture2Contact {
+    grid-area: picture2Contact;
+}
+
+#picture3Contact {
+    grid-area: picture3Contact;
+}
+
+#picture4Contact {
+    grid-area: picture4Contact;
+}
+
+/*____screen changing___*/
+@media screen and (max-width: 900px) {
+
+    /*____General___*/
+    .active {
+        color: royalblue;
+        font-size: 150%;
+    }
+
+    header nav {
+        background-color: white;
+        padding: 5px;
+        box-shadow: 0 0 0.5vh black;
+        text-align: center;
+        height: 100%;
+    }
+
+    header nav li a {
+        font-size: 120%;
+    }
+
+    #logo {
+        margin-left: 0;
+        height: 10vh;
+    }
+
+    #menuIcon {
+        width: 12%;
+        margin-right: 5vw;
+    }
+
+    #smallHeader {
+        /*smaller header in the small screen*/
+        font-size: 100%;
+        width: 90%;
+    }
+
+    #aboutUs {
+        /*to be bigger on most of the screen*/
+        width: 80%;
+    }
+
+    .moreText {
+        display: none;
+    }
+
+    /*____Home Page___*/
+    .containerHome {
+        display: grid;
+        height: 100vh;
+        grid-template-areas:
+            'header'
+            'smallHeader'
+            'explain'
+            'picture1Home'
+            'picture2Home'
+            'aboutUs'
+            'footer';
+    }
+
+    #explain {
+        width: 70vw;
+        padding-left: 18vw;
+        font-size: 100%;
+        grid-area: explain;
+        margin-left: 7.5vw;
+        margin-right: 7.5vw;
+
+    }
+
+    #picturesHome {
+        margin-bottom: 0;
+    }
+
+    #picture1Home {
+        grid-area: picture1Home;
+        border: 1px black solid;
+        border-radius: 15px;
+        width: 40vw;
+
+    }
+
+    #picture2Home {
+        grid-area: picture2Home;
+        border: 1px black solid;
+        border-radius: 15px;
+        width: 40vw;
+    }
+
+    /*____Contact Us Page___*/
+    .containerContact {
+        display: grid;
+        height: 100vh;
+        grid-template-areas:
+            "header"
+            "smallHeader"
+            "form "
+            "picturesContact"
+            "aboutUs"
+            "footer";
+    }
+
+    fieldset { /*adjust the form to the small screen*/
+        width: 80vw;
+        margin: 5vw;
+    }
+
+    textarea {
+        width: 80%;
+        height: 15vh;
+        padding: 0.2vw;
+    }
+
+    #picturesContact img {
+        width: 40vw;
+    }
+
+    #picturesContact {
+        display: grid;
+        width: 80vw;
+        height: 80vh;
+        padding: 0 10vw;
+
+    }
+
+}
+
+/*server extend*/
+#hobbiesHello {
+    width: 30%;
+    margin-left: 35%;
+}
+
+#hobbies {
+    font-size: larger;
+    padding: 0;
+    margin-left: 5%;
+
+}
+#tvShows {
+    font-size: larger;
+    padding: 0;
+    margin-left: 5%;
+
+}
+#hello {
+    margin-left: 35%;
+
+}
