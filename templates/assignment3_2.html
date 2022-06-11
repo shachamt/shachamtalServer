@@ -3,7 +3,37 @@
     {% block title %}{{ title }} Page{% endblock %}
 
     {%block explain %}
-{{super()}}
+    {{super()}}
+
+    <div id="dict">
+
+        <h1>Search user here</h1>
+
+        <form action="/forms">
+            <input type="text" name="user_name" placeholder="user name">
+            <input type="submit" value="Find">
+        </form>
+
+        {% if user_name %}
+            <h2>Name: {{user_name}}</h2>
+            <h3>Email: {{user_email}}</h3>
+        {% endif %}
+
+        {% if message %}
+            <h3 style="color: red"> {{message}}</h3>
+        {% endif %}
+
+        {% if isEmpty %}
+            {% if users_dict %}
+                <ol>
+                    {% for k, v in users_dict.items() %}
+                        <li><h2>Name: {{k}}, email: {{v}}</h2></li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+        {% endif %}
+
+    </div>
     {%endblock %}
 
     {%block titleFooter1 %}Find more about diving in Israel{% endblock %}
