@@ -1,25 +1,24 @@
-{% extends 'base.html' %}
+    {% include('header.html') %}
+    {% extends 'base.html' %}
     {% set title='My Forms' %}
     {% block title %}{{ title }} Page{% endblock %}
 
     {%block explain %}
     {{super()}}
-        {% if session['nickname'] %}
-            <h2>Hello, {{session['nickname'] | upper ()}}</h2>
-            <a href="/logOut"> Log Out</a>
+
+    <div id="searchDiv" style="margin-top: 5%;">
+        {% if session['user_name'] %}
+                <a style="font-size: x-large" href="/logOut"> Log Out</a>
         {% endif %}
+        <h1>Search user here by ID</h1>
 
-
-    <div id="searchDiv">
-        <h1>Search user here</h1>
-
-        <form action="/forms">
-            <input type="text" name="user_name" placeholder="User Name">
+        <form action="/assignment3_2">
+            <input type="text" name="user_id" placeholder="User ID">
             <input type="submit" value="Find">
         </form>
 
-        {% if user_name %}
-            <h2>Name: {{user_name}}</h2>
+        {% if user_id %}
+            <h2>First Name: {{first_name | capitalize()}}, Last Name: {{last_name| capitalize()}} </h2>
             <h3>Email: {{user_email}}</h3>
         {% endif %}
 
@@ -29,9 +28,11 @@
 
         {% if isEmpty %}
             {% if users_dict %}
+                <h2>A list of all of the users:</h2>
                 <ol>
-                    {% for k, v in users_dict.items() %}
-                        <li><h2>Name: {{k}}, email: {{v}}</h2></li>
+                    {% for key in users_dict %}
+                        <li style="font-size: smaller"><h2>First Name: {{users_dict[key]['first_name'] | capitalize()}}, Last Name: {{users_dict[key]['last_name']}},
+                            ID: {{users_dict[key]['id']}}, Email: {{users_dict[key]['email']}}</h2></li>
                     {% endfor %}
                 </ol>
             {% endif %}
@@ -41,34 +42,34 @@
 
     <div id="registrationDiv">
 
-        {% if nickname %}
+        {% if session['user_name'] %}
         {% else %}
              <h1>Registration form</h1>
-            <form action="/forms" method="post">
-            <input type="text" name="userName" placeholder="User Name" required>
-            <input type="text" name="email" placeholder="Email" required>
-            <input type="text" name="nickname" placeholder="Nickname" required>
+            <form action="/assignment3_2" method="post">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="text" name="user_name" placeholder="Nickname" required>
+            <input type="text" name="user_id" placeholder="User ID" required>
+            <input type="text" name="user_email" placeholder="Email" required>
+            <input type="password" name="user_password" placeholder="Password" required>
+
+
             <input type="submit" value="Register">
 
         </form>
 
         {% endif %}
 
-
-
-
     </div>
-
-
 
     {%endblock %}
 
-    {%block titleFooter1 %}Find more about diving in Israel{% endblock %}
-    {% block linkFooter1 %}<a href="https://www.padi.com/diving-in/israel/" target="_blank">Diving in Israel</a>{% endblock %}
+    {%block titleFooter1 %}Visit us on Instagram{% endblock %}
+    {% block linkFooter1 %}<a href="https://www.instagram.com/" target="_blank">Instagram</a>{% endblock %}
 
-    {% block titleFooter2 %}Find more about diving in Sinai{% endblock %}
-    {% block linkFooter2 %}<a href="https://www.abrahamhostels.com/diving-in-sinai-the-best-diving-spots-and-more/" target="_blank">Diving in Sinai</a>{% endblock %}
+    {% block titleFooter2 %}Visit us on Facebook{% endblock %}
+    {% block linkFooter2 %}<a href="https://www.facebook.com/" target="_blank">Facebook</a>{% endblock %}
 
-    {% block titleFooter3 %}Find more about diving in Galapagos{% endblock %}
-    {% block linkFooter3 %}<a href="https://www.liveaboard.com/diving/galapagos?cid=5000&gclid=Cj0KCQjw-pCVBhCFARIsAGMxhAckwhrj2vTJNxAnXHdsfg5MTeKfM9SNyxCuOdz0Rdz_sVmXaUtRoEcaAv1FEALw_wcB" target="_blank">Diving in Galapagos</a>{% endblock %}
+    {% block titleFooter3 %}Visit us on Tiktok{% endblock %}
+    {% block linkFooter3 %}<a href="https://www.tiktok.com/en" target="_blank">Tiktok</a>{% endblock %}
 

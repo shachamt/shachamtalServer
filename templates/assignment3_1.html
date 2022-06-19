@@ -1,35 +1,28 @@
-{% extends 'base.html' %}
+    {% include('header.html') %}
+    {% extends 'base.html' %}
+
     {% set title='My Hobbies' %}
     {% block title %}{{ title }} Page{% endblock %}
 
     {% if user_info %}
       {%block explain %}
      {{super()}}
-        {% if session['nickname'] %}
-            <h2>Hello, {{session['nickname'] | upper ()}}</h2>
-            <a href="/logOut"> Log Out</a>
-        {% endif %}
+
+          <h1 style="margin-left: 2%; margin-top: 5%; font-size: 130%">{{ ['shcaham',24,'student', 'beer sheva' ]| join(' | ') | upper() }}</h1>
        <div id="hobbiesHello">
-            <h2>Welcome to {{user_info | capitalize()}}'s hobbies page!</h2>
+            <h2>Welcome to {{user_info | capitalize()|join(' ')}}'s hobbies page!</h2>
        </div>
 
       <div id="hobbies">
           <h2>My Hobbies:</h2>
           <ol>
                {% for hobbie in my_hobbies %}
-                   <li>{{ hobbie | upper() }}</li>
+                   <h1>{{ hobbie | capitalize()|replace('tv', 'TV')|replace('books', 'BOOKS')}}</h1>
                {% endfor %}
           </ol>
      </div>
 
-      <div id="tvShows">
-          <h2>My favorite TV shows:</h2>
-          <ol>
-                {% for show in my_shows %}
-                  <li>{{ show | capitalize() }}</li>
-                {% endfor %}
-         </ol>
-      </div>
+
       {%endblock %}
 
       {% block titleFooter1 %}Find more about diving in Israel- {% endblock %}

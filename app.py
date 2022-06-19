@@ -13,15 +13,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
 def goHome ():
     return redirect(url_for('homePage'))
 
-@app.route('/home')
-def homePage ():
-    return render_template('homePage.html')
-
-@app.route('/contact')
-def contact ():
-    return render_template('contactUs.html')
-
-@app.route('/hobbies')
+@app.route('/assignment3_1')
 def MyHobbies ():
     user_info = 'shacham'
     hobbies = ('watch TV', 'Read books', 'Diving', 'Sleeping')
@@ -31,43 +23,69 @@ def MyHobbies ():
                            user_info=user_info,
                            my_shows=shows)
 
-users_dict =  {
-    'Shacham': 'shachamt@post.bgu.ac.il',
-    'Aviv': 'aviv@post.bgu.ac.il',
-    'Noy': 'noy@post.bgu.ac.il',
-    'Oron': 'Oron@post.bgu.ac.il',
-    'Shany': 'shany@post.bgu.ac.il',
+@app.route('/hobbies')
+def assign1 ():
+    return redirect('/assignment3_1')
 
+
+users_dict =  {
+    1: {'id':'319002762', 'first_name': 'shacham', 'last_name': 'tal', 'email': 'shachamt@post.bgu.ac.il', 'password': '1234'},
+    2: {'id': '313131317', 'first_name': 'aviv', 'last_name': 'menahem', 'email': 'aviv@post.bgu.ac.il', 'password': '8585'},
+    3: {'id': '363636369', 'first_name': 'nir', 'last_name': 'yaakov', 'email': 'nirnir@post.bgu.ac.il', 'password': '2222'},
+    4: {'id': '258471369', 'first_name': 'adi', 'last_name': 'mizrahi', 'email': 'adimi@post.bgu.ac.il', 'password': '3641'},
+    5: {'id': '285236581', 'first_name': 'shir', 'last_name': 'yehezkel', 'email': 'shishir@post.bgu.ac.il','password': '2258'}
 }
 
-@app.route('/forms', methods=['GET','POST'])
+
+@app.route('/assignment3_2',methods=['GET','POST'])
 def MyForms ():
-    if 'user_name' in request.args:
-        user_name= request.args['user_name']
-        if user_name in users_dict:
-            return render_template('assignment3_2.html',
-                                   user_name=user_name,
-                                   user_email= users_dict[user_name])
-        else:
-            if user_name=='':
+    if 'user_id' in request.args:
+        user_id= request.args['user_id']
+        for key in users_dict:
+            if user_id.__eq__(users_dict[key]['id']):
                 return render_template('assignment3_2.html',
-                                       isEmpty=True,
-                                       users_dict=users_dict)
+                                       user_id=user_id,
+                                       user_email= users_dict[key]['email'],
+                                       first_name = users_dict[key]['first_name'],
+                                       last_name = users_dict[key]['last_name'])
             else:
-                return render_template('assignment3_2.html',
-                                   message= 'user not found')
+                if user_id=='':
+                    return render_template('assignment3_2.html',
+                                           isEmpty=True,
+                                           users_dict=users_dict)
+                else:
+                    return render_template('assignment3_2.html',
+                                       message= 'user not found')
+
     if request.method == 'POST':
-        userName = request.form ['userName']
-        email = request.form ['email']
-        nickname = request.form ['nickname']
-        if ((userName!='') & (email!='') & (nickname!='')):
-                session['nickname'] = nickname
+        first_name = request.form ['first_name']
+        last_name = request.form ['last_name']
+        user_name = request.form ['user_name']
+        user_id = request.form ['user_id']
+        user_email = request.form ['user_email']
+        user_password = request.form ['user_password']
+        if ((first_name!='') & (last_name!='') & (user_name!='') & (user_password!='')& (user_id!='')):
+                session['user_name'] = user_name
+                x=len(users_dict)
+                users_dict[x+1]={'id':user_id, 'first_name': first_name, 'last_name': last_name, 'email': user_email, 'password': user_password}
                 return render_template('assignment3_2.html',
-                                        nickname=nickname,
-                                        email=email,
-                                       userName=userName)
+                                        first_name=first_name,
+                                        last_name=last_name,
+                                       user_name=user_name,
+                                       user_password=user_password,
+                                       sessionOn=False
+                                       )
     return render_template('assignment3_2.html',
                            users_dict=users_dict)
+
+
+@app.route('/home')
+def homePage ():
+    return render_template('homePage.html')
+
+@app.route('/contact')
+def contact ():
+    return render_template('contactUs.html')
 
 @app.route('/session')
 def session_func():
@@ -76,7 +94,7 @@ def session_func():
 @app.route('/logOut')
 def logOut ():
     session.clear()
-    return redirect(url_for('MyForms'))
+    return redirect('/assignment3_2')
 
 if __name__ == '__main__':
     app.run(debug=True)
